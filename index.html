@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Simon Game</title>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/index.css">
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+	<div class="placeholder">
+		
+	</div>
+	<div class="main-container">
+
+		<div class="outer-circle">
+
+			<div class="inner-circle">
+
+				<div class="button-container">
+					<div class="row">
+						<div class="col-xs-6 simon-button" id="simon-button-a">
+							<span></span>
+						</div>
+						<div class="col-xs-6 simon-button" id="simon-button-b">
+							<span></span>
+						</div>
+						<div class="col-xs-6 simon-button" id="simon-button-c">
+							<span></span>
+						</div>
+						<div class="col-xs-6 simon-button" id="simon-button-d">
+							<span></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="control-container">
+					<div class="row game-title-container">
+						<span class="game-title">Simon</span>
+					</div>
+					
+					<div class="row control-btn-container">
+						<div class="col-xs-4 score-board-container">
+							<div class="empty" style="visibility:hidden">
+								<span>*</span>
+							</div>
+							<div class="score-board-value">
+								<span>--</span>
+							</div>
+							<div class="score-board-label">
+								<span>COUNT</span>
+							</div>
+						</div>
+
+						<div class="col-xs-4 start-btn-outer-container">
+							<div class="empty" style="visibility:hidden">
+								<span>*</span>
+							</div>
+							<div class="start-btn-inner-container">
+								<button class="btn btn-circle" id="start-btn"></button>
+							</div>
+							<div class="start-btn-label">
+								<span>START</span>
+							</div>
+						</div>
+
+						<div class="col-xs-4 strict-btn-outer-container">
+							<div class="led-light-container">
+								<div id="led-light"></div>
+							</div>
+							<div class="strict-btn-inner-container">
+								<button class="btn btn-circle" id="strict-btn"></button>
+							</div>
+							<div class="strict-btn-label">
+								<span>STRICT</span>
+							</div>
+						</div> <!-- End of strict button container -->
+
+					</div>
+				</div><!-- End of control container -->
+			</div><!-- End of inner circle -->
+		</div> <!-- End of outer circle -->
+
+	</div> <!-- End of main container -->
+	
+</body>
+</html>
