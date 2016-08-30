@@ -102,6 +102,7 @@ $(document).ready(function (){
 		if (app.userArray.length === app.systemArray.length) {
 			if (app.count === app.winningCount) {
 				alert("You have won!");
+				resetFlags();
 				beginTheGame();
 			}
 
