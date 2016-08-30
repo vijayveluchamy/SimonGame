@@ -12,9 +12,11 @@
 	<script src="js/index.js"></script>
 </head>
 <body>
+	<!--
 	<div class="placeholder">
 		
 	</div>
+	-->
 	<div class="main-container">
 
 		<div class="outer-circle">
@@ -23,17 +25,17 @@
 
 				<div class="button-container">
 					<div class="row">
-						<div class="col-xs-6 simon-button" id="simon-button-a">
-							<span></span>
+						<div class="col-xs-6 simon-button-holder" id="simon-button-a-holder">
+							<div class="simon-button" id="simon-button-a"></div>
 						</div>
-						<div class="col-xs-6 simon-button" id="simon-button-b">
-							<span></span>
+						<div class="col-xs-6 simon-button-holder" id="simon-button-b-holder">
+							<div class="simon-button" id="simon-button-b"></div>
 						</div>
-						<div class="col-xs-6 simon-button" id="simon-button-c">
-							<span></span>
+						<div class="col-xs-6 simon-button-holder" id="simon-button-c-holder">
+							<div class="simon-button" id="simon-button-c"></div>
 						</div>
-						<div class="col-xs-6 simon-button" id="simon-button-d">
-							<span></span>
+						<div class="col-xs-6 simon-button-holder" id="simon-button-d-holder">
+							<div class="simon-button" id="simon-button-d"></div>
 						</div>
 					</div>
 				</div>
@@ -49,7 +51,7 @@
 								<span>*</span>
 							</div>
 							<div class="score-board-value">
-								<span>--</span>
+								<span id="score-board-span" style="visibility: hidden">--</span>
 							</div>
 							<div class="score-board-label">
 								<span>COUNT</span>

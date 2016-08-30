@@ -33,28 +33,53 @@
 	z-index: -1;
 }
 
-.simon-button {
-	border: 7px solid #444;
+.simon-button-holder {
 	height: 240px;
+	padding: 0px;
+}
+
+.simon-button-holder div {
+	width: 100%;
+	height: 100%;
+}
+
+#simon-button-a-holder {
+	border-right: 7px solid #444;
+	border-bottom: 7px solid #444;
+}
+
+#simon-button-b-holder {
+	border-left: 7px solid #444;
+	border-bottom: 7px solid #444;
+}
+
+#simon-button-c-holder {
+	border-right: 7px solid #444;
+	border-top: 7px solid #444;
+}
+
+#simon-button-d-holder {
+	border-left: 7px solid #444;
+	border-top: 7px solid #444;
+}
+
+.simon-button {
+	cursor: not-allowed;
 }
 
 #simon-button-a {
-	border-top: 0px;
 	background-color: #226400;
 }
 
 #simon-button-b {
-	border-top: 0px;
 	background-color: #8B0000;
 }
 
 #simon-button-c {
-	border-bottom-width: 0px;
 	background-color: #998800;
 }
 
 #simon-button-d {
-	border-bottom-width: 0px;
 	background-color: #1E7088;
 }
 
