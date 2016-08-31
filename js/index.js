@@ -6,10 +6,11 @@ $(document).ready(function (){
 		'strictMode': false,
 		'isStarted': false,
 		'isSimonButtonClickable': false,
+		'gameInterrupted': false,
 		'systemArray': [],
 		'userArray': [],
 		'count': 0,
-		'winningCount': 5
+		'winningCount': 20
 	};
 
 	var ledBgColor = {
@@ -53,7 +54,7 @@ $(document).ready(function (){
 		if (!app.switchedOn){
 			return;
 		};
-
+		app.gameInterrupted = true;
 		resetFlags();
 		beginTheGame();
 	});
@@ -93,17 +94,25 @@ $(document).ready(function (){
 
 		//If comparison fails, replay the sequence again
 		if (!comparisonResult) {
-			alert('Invalid click! Listen the clicks once again carefully!');
-			app.userArray = [];
-			letSystemPlay();
+			if (app.strictMode){
+				showMessage('Invalid click! Restarting the game!','#bb0000');
+				resetFlags();
+				beginTheGame();
+			} else {
+				showMessage('Invalid click! Listen the clicks once again carefully!','#bb0000');
+				app.userArray = [];
+				delay(2000, letSystemPlay);
+			}
+
 			return;
 		}
 		// If the number of clicks is equal to the system clicks, show the result
 		if (app.userArray.length === app.systemArray.length) {
 			if (app.count === app.winningCount) {
-				alert("You have won!");
+				showMessage("You have won the game!",'#00bb00');
 				resetFlags();
 				beginTheGame();
+				return;
 			}
 
 			//Increment the counter. Add a random click to system array and make the system play
@@ -111,7 +120,7 @@ $(document).ready(function (){
 			setCountDisplay(app.count);
 			app.userArray = [];//Emptying user array
 			app.systemArray.push(getRandomButton());
-			letSystemPlay();
+			delay(2000, letSystemPlay);
 		}
 		
 	});
@@ -129,8 +138,10 @@ $(document).ready(function (){
 	function beginTheGame() {
 		app.count = 1;
 		app.systemArray.push(getRandomButton());
-		setCountDisplay(app.count);
-		letSystemPlay();
+		flashCount('--', app.count);
+		showMessage('Starting the game...','#00bb00');
+		delay(3000, letSystemPlay);
+		app.gameInterrupted = false;
 	};
 
 	function letSystemPlay() {
@@ -138,7 +149,7 @@ $(document).ready(function (){
 
 		function loop() {
 			//Check whether the game is switched on
-			if (!app.switchedOn) {
+			if ( !app.switchedOn || app.gameInterrupted ) {
 				return;
 			}
 
@@ -192,5 +203,28 @@ $(document).ready(function (){
 				return false;
 		}
 		return true;
+	};
+
+	function delay(duration, callback){
+		setTimeout(function (){
+			callback();
+		}, duration);
+	};
+
+	function showMessage(message, color){
+		var msgElement = $('#message');
+		msgElement.css('color',color);
+		msgElement.html(message);
+		msgElement.show();
+
+		msgElement.fadeOut(2000);
+	};
+
+	function flashCount(beginVal, endVal) {
+		setCountDisplay(beginVal);
+		$('#score-board-span').fadeOut(300).fadeIn(300).fadeOut(300).fadeIn(300, function(){
+			if (endVal)
+				setCountDisplay(endVal);
+		});
 	};	
 });
